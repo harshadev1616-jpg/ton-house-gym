@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ton House Gym</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+html{scroll-behavior:smooth;}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins;
+}
+
+body{
+background:#0b0b0b;
+color:white;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+.navbar{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+.logo{
+font-size:26px;
+font-weight:700;
+background:linear-gradient(45deg,#ff004c,#ff6a8f);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+.nav-links a{
+text-decoration:none;
+color:white;
+font-weight:500;
+}
+
+.menu-btn{
+display:none;
+font-size:28px;
+cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:0 20px;
+
+background:
+linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.9)),
+url("https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b") center/cover;
+}
+
+.hero h1{
+font-size:64px;
+animation:fadeUp 1s forwards;
+}
+
+.hero span{
+color:#ff004c;
+}
+
+.hero p{
+max-width:600px;
+margin-top:20px;
+color:#ccc;
+animation:fadeUp 1.5s forwards;
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* BUTTON */
+
+.btn{
+margin-top:30px;
+padding:14px 36px;
+background:linear-gradient(45deg,#ff004c,#ff6a8f);
+border-radius:30px;
+cursor:pointer;
+font-weight:600;
+transition:.4s;
+}
+
+.btn:hover{
+transform:scale(1.1);
+}
+
+/* SECTIONS */
+
+section{
+padding:120px 10%;
+}
+
+/* HEADERS */
+
+.section-title{
+text-align:center;
+margin-bottom:60px;
+}
+
+.section-title h2{
+font-size:40px;
+}
+
+.section-title p{
+color:#aaa;
+}
+
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+}
+
+/* CARDS */
+
+.card{
+background:#121212;
+padding:35px;
+border-radius:12px;
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 20px #ff004c33;
+}
+
+/* GALLERY */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.gallery img{
+width:100%;
+border-radius:12px;
+}
+
+/* PRICING */
+
+.price{
+font-size:34px;
+color:#ff004c;
+margin:15px 0;
+}
+
+.popular{
+border:2px solid #ff004c;
+transform:scale(1.05);
+}
+
+/* REVIEW */
+
+.review{
+max-width:700px;
+margin:auto;
+text-align:center;
+color:#ccc;
+}
+
+/* CTA */
+
+.cta{
+text-align:center;
+background:#050505;
+}
+
+.cta h2{
+font-size:42px;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:40px;
+background:black;
+color:#777;
+}
+
+/* SCROLL ANIMATION */
+
+.reveal{
+opacity:0;
+transform:translateY(60px);
+transition:1s;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:40px;
+}
+
+.hero p{
+font-size:14px;
+}
+
+.section-title h2{
+font-size:30px;
+}
+
+.nav-links{
+position:fixed;
+top:0;
+right:-100%;
+height:100vh;
+width:220px;
+background:#000;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:30px;
+transition:.4s;
+}
+
+.nav-links.active{
+right:0;
+}
+
+.menu-btn{
+display:block;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">TON HOUSE</div>
+
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<ul class="nav-links" id="nav">
+<li><a href="#programs">Programs</a></li>
+<li><a href="#pricing">Pricing</a></li>
+<li><a href="#reviews">Reviews</a></li>
+</ul>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<h1>Build Your <span>Ultimate Body</span></h1>
+
+<p>
+Ton House Gym is a premium strength training facility designed to help members transform their bodies and achieve peak physical performance.
+</p>
+
+<div class="btn">Join Now</div>
+
+</section>
+
+<!-- PROGRAMS -->
+
+<section id="programs">
+
+<div class="section-title reveal">
+<h2>Training Programs</h2>
+<p>Programs built for strength, endurance and body transformation.</p>
+</div>
+
+<div class="grid">
+
+<div class="card reveal">
+<h3>Strength Training</h3>
+<p>Build muscle mass with progressive overload programs.</p>
+</div>
+
+<div class="card reveal">
+<h3>Fat Loss</h3>
+<p>Burn fat through high intensity workouts and coaching.</p>
+</div>
+
+<div class="card reveal">
+<h3>Bodybuilding</h3>
+<p>Professional bodybuilding training plans.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- TRANSFORMATIONS -->
+
+<section>
+
+<div class="section-title reveal">
+<h2>Member Transformations</h2>
+</div>
+
+<div class="gallery">
+
+<img class="reveal" src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd">
+<img class="reveal" src="https://images.unsplash.com/photo-1546484959-fc8f0a73c5a9">
+<img class="reveal" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b">
+
+</div>
+
+</section>
+
+<!-- PRICING -->
+
+<section id="pricing">
+
+<div class="section-title reveal">
+<h2>Membership Plans</h2>
+</div>
+
+<div class="grid">
+
+<div class="card reveal">
+<h3>Monthly</h3>
+<div class="price">₹1500</div>
+<p>Full gym access.</p>
+</div>
+
+<div class="card popular reveal">
+<h3>3 Months</h3>
+<div class="price">₹4000</div>
+<p>Best value membership.</p>
+</div>
+
+<div class="card reveal">
+<h3>Yearly</h3>
+<div class="price">₹12000</div>
+<p>Unlimited training access.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- REVIEWS -->
+
+<section id="reviews">
+
+<div class="section-title reveal">
+<h2>Member Reviews</h2>
+</div>
+
+<p class="review reveal">
+"Ton House Gym completely changed my fitness journey. Amazing trainers and equipment."
+★★★★★
+</p>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta reveal">
+
+<h2>Start Your Transformation Today</h2>
+
+<p>Join Ton House Gym and build your strongest body.</p>
+
+<div class="btn">Join Ton House</div>
+
+</section>
+
+<footer>
+© 2026 Ton House Gym
+</footer>
+
+<script>
+
+function toggleMenu(){
+document.getElementById("nav").classList.toggle("active");
+}
+
+function reveal(){
+
+var reveals=document.querySelectorAll(".reveal");
+
+for(var i=0;i<reveals.length;i++){
+
+var windowHeight=window.innerHeight;
+var elementTop=reveals[i].getBoundingClientRect().top;
+var revealPoint=120;
+
+if(elementTop<windowHeight-revealPoint){
+
+reveals[i].classList.add("active");
+
+}
+
+}
+
+}
+
+window.addEventListener("scroll",reveal);
+window.addEventListener("load",reveal);
+
+</script>
+
+</body>
+</html>
